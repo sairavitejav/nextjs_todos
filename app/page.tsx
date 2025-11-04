@@ -18,7 +18,9 @@ export default function Home() {
       try {
         const res = await fetch("/api/todos");
         const data = await res.json();
-        setTodos(data);
+        if (Array.isArray(data)) setTodos(data);
+        else setTodos([]);
+        // setTodos(data);
       } catch (error) {
         console.error("Error fetching todos:", error);
       } finally {
