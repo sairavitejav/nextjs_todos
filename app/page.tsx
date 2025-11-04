@@ -35,7 +35,7 @@ export default function Home() {
     e.preventDefault();
     if (!newTodo.trim()) return;
 
-    const res = await fetch("api/todos", {
+    const res = await fetch("/api/todos", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -49,7 +49,7 @@ export default function Home() {
 
   // Edit an Existing Todo
   async function toogleComplete(id: string, completed: boolean) {
-    const res = await fetch("api/todos", {
+    const res = await fetch("/api/todos", {
       method: "PATCH",
       headers: {
         "Content-Type": "application/json",
@@ -72,7 +72,7 @@ export default function Home() {
 
   // Delete a Todo
   async function deleteTodo(id: string) {
-    await fetch("api/todos", {
+    await fetch("/api/todos", {
       method: "DELETE",
       headers: {
         "Content-Type": "application/json",
